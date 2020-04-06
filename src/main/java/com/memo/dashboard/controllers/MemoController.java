@@ -2,9 +2,9 @@ package com.memo.dashboard.controllers;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.DeleteQuery;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.memo.dashboard.models.Memo;
 import com.memo.dashboard.repositories.MemoRepository;
 
+@CrossOrigin
 @RestController
 @RequestMapping("memos")
 public class MemoController {
@@ -40,4 +41,9 @@ public class MemoController {
 	public void deleteMemo(@PathVariable String id) {
 		this.repository.deleteById(id);
 	}
+	
+	/*@PostMapping("")
+	public Memo memoDone(@RequestBody Memo entity) {
+		return this.repository.save(entity);
+	}*/
 }
